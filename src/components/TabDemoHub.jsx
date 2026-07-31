@@ -361,7 +361,12 @@ function PanelAIChat() {
         throw new Error("No answer returned");
       }
     } catch (err) {
-      if (q.toLowerCase().includes("1502") || q.toLowerCase().includes("insertion")) {
+      if (q.toLowerCase().includes("qubit")) {
+        setResponse(
+          `The QuantumDNA X platform uses a 4-Qubit quantum register (q₀, q₁, q₂, q₃) in IBM Qiskit. ` +
+          `Nucleotides are encoded as phase rotation angles: Adenine (θ=0.00 rad), Thymine (θ=1.57 rad), Guanine (θ=3.14 rad), and Cytosine (θ=4.71 rad).`
+        );
+      } else if (q.toLowerCase().includes("1502") || q.toLowerCase().includes("insertion")) {
         setResponse(
           `At position 1502, an Insertion variant adds an extra nucleotide base pair into the DNA sequence. ` +
           `This causes a frameshift mutation, shifting the downstream codon reading frame and altering the amino acid sequence. ` +
