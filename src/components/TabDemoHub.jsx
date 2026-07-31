@@ -31,7 +31,7 @@ const FEATURES = [
   {
     id: 'dna-proof',
     title: 'DNA Mutation Proof Inspector',
-    description: 'Chromosome 22 sample sequence mutation proof & amino acid output translation.',
+    description: 'Synthetic demonstration sequence mutation proof & amino acid output translation.',
     icon: <Dna className="w-5 h-5 text-emerald-400" />,
     status: 'New Feature',
     statusColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
@@ -339,10 +339,8 @@ function PanelQuantumCircuit() {
   );
 }
 
-// ── NEW FEATURE: DNA Mutation Proof Inspector (10-Point Presentation-Ready Format) ──
+// ── NEW FEATURE: DNA Mutation Proof Inspector (Refined Scientific Rigor) ──
 function PanelMutationProof() {
-  const [selectedCodon, setSelectedCodon] = useState(11);
-
   const codonsList = [
     { num: 1, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
     { num: 2, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
@@ -376,9 +374,9 @@ function PanelMutationProof() {
         <div className="font-bold text-slate-200 flex items-center justify-between border-b border-slate-800 pb-2">
           <span className="flex items-center space-x-2">
             <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span>DNA Codon Color Palette & Reading Frame Dictionary</span>
+            <span>Synthetic Demonstration Sequence & Reading Frame Dictionary</span>
           </span>
-          <span className="text-[10px] text-cyan-400">Watson-Crick Translation Rules</span>
+          <span className="text-[10px] text-cyan-400">Standard Genetic Code (Codon → Amino Acid)</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-6 gap-2">
@@ -443,13 +441,13 @@ function PanelMutationProof() {
         <div className="p-4 rounded-xl bg-slate-950 border border-rose-500/30 space-y-2">
           <div className="flex items-center justify-between border-b border-slate-800 pb-2">
             <span className="font-bold text-rose-400">Frameshift (Deletion)</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30">-1 T</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30">-1 T @ Pos 30</span>
           </div>
           <div className="space-y-1 text-slate-300 text-[11px]">
-            <div>Mutation Type: <strong className="text-rose-400">1bp Deletion</strong></div>
+            <div>Mutation Type: <strong className="text-rose-400">1bp Deletion (Locus 30)</strong></div>
             <div>Reading Frame: <strong className="text-rose-400 font-bold">Shifted ⚡</strong></div>
-            <div>Downstream Codons: <strong className="text-orange-400">Regrouped</strong></div>
-            <div>Protein Length: <strong className="text-slate-100">19 Amino Acids (-1)</strong></div>
+            <div>Downstream Codons: <strong className="text-orange-400 font-bold">Altered / Regrouped</strong></div>
+            <div>Complete Codons: <strong className="text-slate-100">19 (Demo Truncation)</strong></div>
           </div>
         </div>
       </div>
@@ -457,7 +455,7 @@ function PanelMutationProof() {
       {/* 1. Show Codons in Groups of Three & 2. Numbered List */}
       <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-          <span className="text-cyan-400 font-bold text-sm">1. Normal Reference Sequence (Grouped Triplets & Codon Numbers)</span>
+          <span className="text-cyan-400 font-bold text-sm">1. Synthetic Demonstration Sequence (Grouped Triplets & Codon Numbers)</span>
           <span className="text-[10px] text-slate-400">60 bp / 3 = 20 Codons</span>
         </div>
 
@@ -558,29 +556,32 @@ function PanelMutationProof() {
         </div>
       </div>
 
-      {/* 6. Improve Frameshift Section & 7. Reading Frame Diagram & 8. Domino Effect */}
+      {/* 6. Exact Deletion Position & 7. Reading Frame Shift Diagram & 8. Scientific Domino Effect */}
       <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
           <span className="text-rose-400 font-bold text-sm">3. Frameshift Mutation (Deletion Step-by-Step Regrouping Diagram)</span>
-          <span className="text-[10px] text-rose-300">1bp Deletion (-1 T)</span>
+          <span className="text-[10px] text-rose-300 font-bold">Deleted Nucleotide: Position 30 (Third T of Codon #10)</span>
         </div>
 
-        {/* Step-by-Step Shift Diagram */}
+        {/* Step-by-Step Shift Diagram with Exact Locus */}
         <div className="p-4 bg-slate-900 rounded-xl border border-rose-500/30 space-y-3">
           <div className="space-y-1">
-            <span className="text-[10px] text-slate-400 uppercase">Original Reference Triplets:</span>
+            <span className="text-[10px] text-slate-400 uppercase">Original Reference Triplets (60 bp):</span>
             <div className="text-xs font-bold text-slate-300">
               AAA | AAA | AAA | AAA | AAA | TTT | TTT | TTT | TTT | TTT | CCC | CCC | CCC | CCC | CCC | GGG | GGG | GGG | GGG | GGG
             </div>
           </div>
 
-          <div className="p-2 rounded bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs font-bold flex items-center space-x-2">
-            <AlertTriangle className="w-4 h-4 text-rose-400" />
-            <span>Deleting one nucleotide (-1 T from Thymine block)...</span>
+          <div className="p-2.5 rounded bg-rose-950/70 border border-rose-500/50 text-rose-200 text-xs font-bold flex items-center justify-between">
+            <span className="flex items-center space-x-2">
+              <AlertTriangle className="w-4 h-4 text-rose-400" />
+              <span>Deleted nucleotide: Position 30 (third nucleotide of Codon #10 - TTT)</span>
+            </span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-300">Sequence Length: 59 bp</span>
           </div>
 
           <div className="space-y-1">
-            <span className="text-[10px] text-slate-400 uppercase">Regrouped Triplets After Shift (Dominos Cascading):</span>
+            <span className="text-[10px] text-slate-400 uppercase">Regrouped Triplets After Locus 30 Shift:</span>
             <div className="text-xs font-bold text-orange-400 tracking-wider">
               AAA | AAA | AAA | AAA | AAA | TTT | TTT | TTT | TTT | <span className="text-red-400 underline font-black">TCC</span> | CCC | CCC | CCC | <span className="text-orange-300 underline font-black">CCG</span> | GGG | GGG | GGG | GGG | GGG
             </div>
@@ -588,18 +589,21 @@ function PanelMutationProof() {
 
           <div className="pt-2 text-[11px] text-rose-400 font-bold flex items-center space-x-2">
             <ArrowDown className="w-4 h-4 text-rose-400" />
-            <span>↓ Every downstream codon changes | ↓ Multiple amino acids are altered</span>
+            <span>↓ Every downstream codon changes | ↓ Multiple amino acids altered | Complete Codons Remaining: 19</span>
           </div>
         </div>
 
         {/* 8. Explain the Domino Effect */}
-        <div className="p-4 rounded-xl bg-slate-900 border border-rose-500/30 space-y-1 text-slate-300 leading-relaxed text-xs">
-          <div className="text-rose-400 font-bold flex items-center space-x-1.5 mb-1">
+        <div className="p-4 rounded-xl bg-slate-900 border border-rose-500/30 space-y-2 text-slate-300 leading-relaxed text-xs">
+          <div className="text-rose-400 font-bold flex items-center space-x-1.5">
             <BookOpen className="w-4 h-4" />
-            <span>Scientific Domino Effect (Frameshift Rationale):</span>
+            <span>Scientific Domino Effect & Protein Length Note:</span>
           </div>
           <p>
             Deleting one nucleotide shifts the reading frame by one base. Every downstream codon is regrouped into new triplets, causing multiple amino acid changes. This cascading effect is known as a frameshift mutation.
+          </p>
+          <p className="text-[11px] text-slate-400 border-t border-slate-800 pt-2">
+            <strong className="text-slate-300">Biological Protein Length Note:</strong> For this 59 bp synthetic demonstration sequence, 19 complete codons are translated. In natural biological systems, translation continues along the shifted reading frame until an in-frame stop codon (UAA, UAG, or UGA) is encountered.
           </p>
         </div>
       </div>
