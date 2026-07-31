@@ -22,7 +22,7 @@ export const AISummaryEngine = {
 
     const overviewParagraph = `Analysis of sample "${sequenceName}" (${length} base pairs) reveals an overall **${stabilityClass}** index of ${genomicStability}%. The sequence exhibits a GC content of **${gcContent}%** and AT content of **${atContent}%**, reflecting standard structural thermal stability (Melting Temp: ~${stats.meltingTemp}°C).`;
 
-    const mutationParagraph = `A total of **${totalMutations} genomic mutations** were identified (${mutationRate}% mutation density). This includes **${substitutionCount} point substitutions** (${transitionCount} Transitions, ${transversionCount} Transversions; Ti/Tv ratio: ${tiTvRatio}), **${insertionCount} insertions**, and **${deletionCount} deletions**. Key variant hot-spots were detected primarily within high-density nucleotide regions.`;
+    const mutationParagraph = `A total of **${totalMutations} genomic mutations** were identified (${mutationRate}% mutation density). This includes **${substitutionCount} point substitutions** (${transitionCount} Transitions, ${transversionCount} Transversions; Ti/Tv ratio: ${tiTvRatio}), **${insertionCount} insertions**, and **${deletionCount} deletions**. Key variant clusters were detected primarily within high-density nucleotide regions.`;
 
     const quantumParagraph = `Experimental quantum-assisted sequence similarity analysis via Qiskit simulation yielded a **Quantum Fidelity Overlap Score of ${quantumSimilarityScore}%** (compared to classical bit alignment of ${classicalBitSimilarity}%). Quantum phase interference confirmed structural sequence conservation across major sub-registers.`;
 

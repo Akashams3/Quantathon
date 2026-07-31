@@ -1,9 +1,10 @@
 import React from 'react';
-import { LayoutDashboard, Dna, GitCommit, Atom, Repeat, FileText } from 'lucide-react';
+import { LayoutDashboard, Dna, GitCommit, Atom, Repeat, FileText, Layers } from 'lucide-react';
 
 export default function NavigationTabs({ activeTab, onTabChange }) {
   const tabs = [
     { id: "overview", label: "Overview & Dashboard", Icon: LayoutDashboard, color: "text-slate-300" },
+    { id: "digitalTwin", label: "3D DNA Explorer", Icon: Layers, color: "text-cyan-300" },
     { id: "sequence", label: "Nucleotide Viewer", Icon: Dna, color: "text-slate-300" },
     { id: "mutations", label: "Mutation Studio", Icon: GitCommit, color: "text-slate-300" },
     { id: "quantum", label: "Qiskit Quantum Lab", Icon: Atom, color: "text-purple-400" },
