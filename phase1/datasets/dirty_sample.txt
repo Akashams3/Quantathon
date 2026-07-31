@@ -1,0 +1,6 @@
+>Sequence_Dirty Sample with invalid bases and formatting
+atgg ccct gtgg atgc gcct cctg cccc
+NNN
+tgct ggcg ctgc tggc cctc tggg gacc
+XXYYZZ
+tgac ccag ccgc agcc tttg tgaa ccaa

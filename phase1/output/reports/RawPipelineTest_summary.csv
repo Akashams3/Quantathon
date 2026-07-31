@@ -1,0 +1,2 @@
+sequence_id,description,is_valid,sequence_length,gc_content_pct,at_content_pct,gc_at_ratio,a_count,t_count,g_count,c_count,a_pct,t_pct,g_pct,c_pct,total_codons,unique_kmers,status
+RawPipelineTest,Direct text input,True,60,71.67,28.33,2.5294,4,13,20,23,6.67,21.67,33.33,38.33,20,22,Ready for AI & Quantum Analysis

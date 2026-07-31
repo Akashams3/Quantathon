@@ -1,0 +1,2 @@
+sequence_id,description,is_valid,sequence_length,gc_content_pct,at_content_pct,gc_at_ratio,a_count,t_count,g_count,c_count,a_pct,t_pct,g_pct,c_pct,total_codons,unique_kmers,status
+Sequence_Dirty,Sequence_Dirty Sample with invalid bases and formatting,False,84,67.86,32.14,2.1111,10,17,25,32,11.9,20.24,29.76,38.1,28,33,Ready for AI & Quantum Analysis

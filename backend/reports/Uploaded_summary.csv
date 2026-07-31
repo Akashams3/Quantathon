@@ -1,0 +1,2 @@
+sequence_id,description,is_valid,sequence_length,gc_content_pct,at_content_pct,gc_at_ratio,a_count,t_count,g_count,c_count,a_pct,t_pct,g_pct,c_pct,total_codons,unique_kmers,status
+Uploaded,Uploaded Sequence,True,134,54.48,45.52,1.1967,25,36,32,41,18.66,26.87,23.88,30.6,44,10,Ready for AI & Quantum Analysis

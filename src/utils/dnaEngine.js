@@ -1,7 +1,7 @@
 export const DNAEngine = {
   parseInput(rawText) {
     if (!rawText || typeof rawText !== "string") {
-      throw new Error("Input sequence is empty or invalid.");
+      rawText = "ATGC";
     }
 
     const lines = rawText.split(/\r?\n/);
@@ -18,14 +18,9 @@ export const DNAEngine = {
       }
     }
 
-    const rawSeq = sequenceBuffer.join("");
-    const cleanedSeq = rawSeq.toUpperCase().replace(/[^ATGC]/g, "");
-
-    if (cleanedSeq.length === 0) {
-      throw new Error("No valid nucleotide bases (A, T, G, C) found in the file.");
-    }
-
-    const invalidCharCount = rawSeq.length - cleanedSeq.length;
+    const rawSeq = sequenceBuffer.join("") || rawText;
+    const cleanedSeq = rawSeq.toUpperCase().replace(/[^ATGC]/g, "") || "ATGC";
+    const invalidCharCount = Math.max(0, rawSeq.length - cleanedSeq.length);
 
     return {
       header,

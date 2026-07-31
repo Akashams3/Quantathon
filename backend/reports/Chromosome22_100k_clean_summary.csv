@@ -1,0 +1,2 @@
+sequence_id,description,is_valid,sequence_length,gc_content_pct,at_content_pct,gc_at_ratio,a_count,t_count,g_count,c_count,a_pct,t_pct,g_pct,c_pct,total_codons,unique_kmers,status
+Chromosome22_100k_clean,Chromosome22_100k_clean,True,99998,36.32,63.68,0.5704,33433,30243,18224,18098,33.43,30.24,18.22,18.1,33332,64,Ready for AI & Quantum Analysis

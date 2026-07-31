@@ -1,0 +1,61 @@
+{
+  "sequence_id": "Uploaded",
+  "description": "Uploaded Sequence",
+  "validation": {
+    "is_valid": true,
+    "total_length": 134,
+    "invalid_characters": [],
+    "invalid_counts": {},
+    "invalid_total_count": 0,
+    "status_message": "[OK] Valid DNA"
+  },
+  "cleaning": {
+    "cleaned_sequence": "AAAAAAAAAAAAAAAAAAAAAAAAATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+    "original_length": 134,
+    "cleaned_length": 134,
+    "removed_characters_count": 0
+  },
+  "features": {
+    "sequence_length": 134,
+    "gc_content_pct": 54.48,
+    "at_content_pct": 45.52,
+    "gc_at_ratio": 1.1967,
+    "base_counts": {
+      "A": 25,
+      "T": 36,
+      "G": 32,
+      "C": 41
+    },
+    "nucleotide_distribution_pct": {
+      "A": 18.66,
+      "T": 26.87,
+      "G": 23.88,
+      "C": 30.6
+    },
+    "k_value": 3,
+    "unique_kmers_count": 10,
+    "kmer_frequencies": {
+      "CCC": 39,
+      "TTT": 34,
+      "GGG": 30,
+      "AAA": 23,
+      "AAT": 1,
+      "ATT": 1,
+      "TTC": 1,
+      "TCC": 1,
+      "CCG": 1,
+      "CGG": 1
+    },
+    "total_codons": 44,
+    "unique_codons_count": 6,
+    "codon_frequencies": {
+      "CCC": 13,
+      "TTT": 11,
+      "GGG": 10,
+      "AAA": 8,
+      "ATT": 1,
+      "TCC": 1
+    }
+  },
+  "status": "Ready for AI & Quantum Analysis"
+}

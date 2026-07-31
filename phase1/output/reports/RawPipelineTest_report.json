@@ -1,0 +1,88 @@
+{
+  "sequence_id": "RawPipelineTest",
+  "description": "Direct text input",
+  "validation": {
+    "is_valid": true,
+    "total_length": 60,
+    "invalid_characters": [],
+    "invalid_counts": {},
+    "invalid_total_count": 0,
+    "status_message": "[OK] Valid DNA"
+  },
+  "cleaning": {
+    "cleaned_sequence": "ATGGCCCTGTGGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCCCTCTGGGGACCTGAC",
+    "original_length": 60,
+    "cleaned_length": 60,
+    "removed_characters_count": 0
+  },
+  "features": {
+    "sequence_length": 60,
+    "gc_content_pct": 71.67,
+    "at_content_pct": 28.33,
+    "gc_at_ratio": 2.5294,
+    "base_counts": {
+      "A": 4,
+      "T": 13,
+      "G": 20,
+      "C": 23
+    },
+    "nucleotide_distribution_pct": {
+      "A": 6.67,
+      "T": 21.67,
+      "G": 33.33,
+      "C": 38.33
+    },
+    "k_value": 3,
+    "unique_kmers_count": 22,
+    "kmer_frequencies": {
+      "CTG": 8,
+      "CCT": 6,
+      "TGG": 5,
+      "GCC": 4,
+      "CCC": 4,
+      "TGC": 4,
+      "GGC": 3,
+      "GCT": 3,
+      "ATG": 2,
+      "GGA": 2,
+      "GCG": 2,
+      "CGC": 2,
+      "CTC": 2,
+      "GGG": 2,
+      "GAC": 2,
+      "TGT": 1,
+      "GTG": 1,
+      "GAT": 1,
+      "TCC": 1,
+      "TCT": 1,
+      "ACC": 1,
+      "TGA": 1
+    },
+    "total_codons": 20,
+    "unique_codons_count": 11,
+    "codon_frequencies": {
+      "CTG": 6,
+      "ATG": 2,
+      "GCC": 2,
+      "TGG": 2,
+      "CTC": 2,
+      "CGC": 1,
+      "CCC": 1,
+      "GCG": 1,
+      "GGA": 1,
+      "CCT": 1,
+      "GAC": 1
+    }
+  },
+  "status": "Ready for AI & Quantum Analysis",
+  "chart_files": [
+    "RawPipelineTest_base_counts.png",
+    "RawPipelineTest_distribution_pie.png",
+    "RawPipelineTest_kmer_frequencies.png"
+  ],
+  "chart_urls": [
+    "/static/charts/RawPipelineTest_base_counts.png",
+    "/static/charts/RawPipelineTest_distribution_pie.png",
+    "/static/charts/RawPipelineTest_kmer_frequencies.png"
+  ]
+}

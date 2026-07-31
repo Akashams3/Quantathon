@@ -1,0 +1,2 @@
+sequence_id,description,is_valid,sequence_length,gc_content_pct,at_content_pct,gc_at_ratio,a_count,t_count,g_count,c_count,a_pct,t_pct,g_pct,c_pct,total_codons,unique_kmers,status
+Sequence_1,Sequence_1 Human Insulin Gene Exon Snippet,True,333,64.56,35.44,1.822,57,61,109,106,17.12,18.32,32.73,31.83,111,57,Ready for AI & Quantum Analysis

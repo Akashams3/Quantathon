@@ -30,14 +30,20 @@ export default function UploadModal({ isOpen, onClose, onProcess }) {
   };
 
   const handleSubmit = () => {
-    if (!rawText.trim()) {
-      alert("Please provide or paste a DNA sequence string.");
+    if (!rawText.trim() && !fileInputRef.current?.files?.[0]) {
+      alert("Please upload a .FASTA/.TXT file or paste a DNA sequence string.");
       return;
     }
     try {
-      const parsed = DNAEngine.parseInput(rawText);
+      const selectedFile = fileInputRef.current?.files?.[0];
+      const parsed = DNAEngine.parseInput(rawText || "");
       const fileType = fileName.endsWith(".fasta") || fileName.endsWith(".fa") ? "FASTA" : "TXT";
-      onProcess(parsed.header || fileName || "Custom Uploaded DNA Locus", parsed.cleanedSequence, fileType);
+      onProcess(
+        parsed.header || fileName || "Custom Uploaded DNA Locus",
+        parsed.cleanedSequence,
+        fileType,
+        selectedFile
+      );
       onClose();
     } catch (err) {
       alert("Validation error: " + err.message);

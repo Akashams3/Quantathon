@@ -1,0 +1,78 @@
+{
+  "sequence_id": "Sample_DNA_213bp",
+  "description": "Sample_DNA_213bp",
+  "validation": {
+    "is_valid": true,
+    "total_length": 213,
+    "invalid_characters": [],
+    "invalid_counts": {},
+    "invalid_total_count": 0,
+    "status_message": "[OK] Valid DNA"
+  },
+  "cleaning": {
+    "cleaned_sequence": "ATGCGTACGTTAGCTAGCTAGGCTAACGTAGCTAGCTAGGCTAACGTAGCTAGCTAACGTTGCAGCTAGCTAACGTAGCTAGCTAGGCTAACGTAGCTAGCTAACGTAGCTAGCTAGGCTAACGTAGCTAGCTAACGTAGCTAGCTAACGTAGCTAGCTAGGCTAACGTAGCTAGCTAGCTAGCTAACGTAGCTAGCTAGCTAGCTAGCTAGC",
+    "original_length": 213,
+    "cleaned_length": 213,
+    "removed_characters_count": 0
+  },
+  "features": {
+    "sequence_length": 213,
+    "gc_content_pct": 48.83,
+    "at_content_pct": 51.17,
+    "gc_at_ratio": 0.9541,
+    "base_counts": {
+      "A": 59,
+      "T": 50,
+      "G": 55,
+      "C": 49
+    },
+    "nucleotide_distribution_pct": {
+      "A": 27.7,
+      "T": 23.47,
+      "G": 25.82,
+      "C": 23.0
+    },
+    "k_value": 3,
+    "unique_kmers_count": 20,
+    "kmer_frequencies": {
+      "TAG": 34,
+      "GCT": 34,
+      "CTA": 34,
+      "AGC": 30,
+      "CGT": 13,
+      "ACG": 12,
+      "GTA": 11,
+      "TAA": 11,
+      "AAC": 11,
+      "AGG": 5,
+      "GGC": 5,
+      "TGC": 2,
+      "GTT": 2,
+      "ATG": 1,
+      "GCG": 1,
+      "TAC": 1,
+      "TTA": 1,
+      "TTG": 1,
+      "GCA": 1,
+      "CAG": 1
+    },
+    "total_codons": 71,
+    "unique_codons_count": 13,
+    "codon_frequencies": {
+      "GCT": 14,
+      "TAG": 12,
+      "CTA": 11,
+      "AGC": 10,
+      "ACG": 6,
+      "AAC": 4,
+      "GTA": 4,
+      "CGT": 3,
+      "TAA": 2,
+      "AGG": 2,
+      "ATG": 1,
+      "TTA": 1,
+      "TGC": 1
+    }
+  },
+  "status": "Ready for AI & Quantum Analysis"
+}

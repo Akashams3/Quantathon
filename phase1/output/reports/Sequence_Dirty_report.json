@@ -1,0 +1,115 @@
+{
+  "sequence_id": "Sequence_Dirty",
+  "description": "Sequence_Dirty Sample with invalid bases and formatting",
+  "validation": {
+    "is_valid": false,
+    "total_length": 93,
+    "invalid_characters": [
+      "N",
+      "X",
+      "Y",
+      "Z"
+    ],
+    "invalid_counts": {
+      "N": 3,
+      "X": 2,
+      "Y": 2,
+      "Z": 2
+    },
+    "invalid_total_count": 9,
+    "status_message": "[INVALID] Invalid Characters Found (9 invalid bases)"
+  },
+  "cleaning": {
+    "cleaned_sequence": "ATGGCCCTGTGGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCCCTCTGGGGACCTGACCCAGCCGCAGCCTTTGTGAACCAA",
+    "original_length": 93,
+    "cleaned_length": 84,
+    "removed_characters_count": 9
+  },
+  "features": {
+    "sequence_length": 84,
+    "gc_content_pct": 67.86,
+    "at_content_pct": 32.14,
+    "gc_at_ratio": 2.1111,
+    "base_counts": {
+      "A": 10,
+      "T": 17,
+      "G": 25,
+      "C": 32
+    },
+    "nucleotide_distribution_pct": {
+      "A": 11.9,
+      "T": 20.24,
+      "G": 29.76,
+      "C": 38.1
+    },
+    "k_value": 3,
+    "unique_kmers_count": 33,
+    "kmer_frequencies": {
+      "CTG": 8,
+      "CCT": 7,
+      "GCC": 6,
+      "TGG": 5,
+      "CCC": 5,
+      "TGC": 4,
+      "GGC": 3,
+      "CGC": 3,
+      "GCT": 3,
+      "ACC": 3,
+      "ATG": 2,
+      "TGT": 2,
+      "GTG": 2,
+      "GGA": 2,
+      "GCG": 2,
+      "CTC": 2,
+      "GGG": 2,
+      "GAC": 2,
+      "TGA": 2,
+      "CCA": 2,
+      "CAG": 2,
+      "AGC": 2,
+      "GAT": 1,
+      "TCC": 1,
+      "TCT": 1,
+      "CCG": 1,
+      "GCA": 1,
+      "CTT": 1,
+      "TTT": 1,
+      "TTG": 1,
+      "GAA": 1,
+      "AAC": 1,
+      "CAA": 1
+    },
+    "total_codons": 28,
+    "unique_codons_count": 17,
+    "codon_frequencies": {
+      "CTG": 6,
+      "GCC": 4,
+      "ATG": 2,
+      "TGG": 2,
+      "CTC": 2,
+      "CGC": 1,
+      "CCC": 1,
+      "GCG": 1,
+      "GGA": 1,
+      "CCT": 1,
+      "GAC": 1,
+      "CCA": 1,
+      "GCA": 1,
+      "TTT": 1,
+      "GTG": 1,
+      "AAC": 1,
+      "CAA": 1
+    }
+  },
+  "status": "Ready for AI & Quantum Analysis",
+  "chart_files": [
+    "Sequence_Dirty_base_counts.png",
+    "Sequence_Dirty_distribution_pie.png",
+    "Sequence_Dirty_kmer_frequencies.png"
+  ],
+  "chart_urls": [
+    "/static/charts/Sequence_Dirty_base_counts.png",
+    "/static/charts/Sequence_Dirty_distribution_pie.png",
+    "/static/charts/Sequence_Dirty_kmer_frequencies.png"
+  ]
+}

@@ -7,7 +7,8 @@ export default function Navbar({
   onRunAnalysis,
   onOpenUpload,
   isDarkMode,
-  onToggleTheme
+  onToggleTheme,
+  isBackendOnline
 }) {
   return (
     <header className="sticky top-0 z-40 glass-panel border-b border-slate-800/80 px-6 py-3.5 flex items-center justify-between">
@@ -18,9 +19,21 @@ export default function Navbar({
           </div>
         </div>
         <div>
-          <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-purple-300 to-emerald-400 bg-clip-text text-transparent brand-font">
-            QuantumDNA X
-          </h1>
+          <div className="flex items-center space-x-2">
+            <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-purple-300 to-emerald-400 bg-clip-text text-transparent brand-font">
+              QuantumDNA X
+            </h1>
+            {isBackendOnline ? (
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30" title="Connected to FastAPI + MySQL Backend (http://127.0.0.1:8000)">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1"></span>
+                Backend API Connected
+              </span>
+            ) : (
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30" title="FastAPI Backend offline (Running in local browser mode)">
+                Local Mode
+              </span>
+            )}
+          </div>
           <p className="text-[11px] font-medium text-slate-400 tracking-wide uppercase">AI + Quantum Hybrid Genomic Platform</p>
         </div>
       </div>

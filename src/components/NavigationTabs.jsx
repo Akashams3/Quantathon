@@ -1,12 +1,15 @@
 import React from 'react';
-import { LayoutDashboard, Dna, GitCommit, Atom, Repeat, FileText } from 'lucide-react';
+import { LayoutDashboard, Dna, GitCommit, Atom, Scale, Sparkles, Repeat, FileText, Activity } from 'lucide-react';
 
 export default function NavigationTabs({ activeTab, onTabChange }) {
   const tabs = [
     { id: "overview", label: "Overview & Dashboard", Icon: LayoutDashboard, color: "text-slate-300" },
+    { id: "digital-twin", label: "3D DNA Digital Twin", Icon: Sparkles, color: "text-emerald-400 font-bold" },
     { id: "sequence", label: "Nucleotide Viewer", Icon: Dna, color: "text-slate-300" },
     { id: "mutations", label: "Mutation Studio", Icon: GitCommit, color: "text-slate-300" },
     { id: "quantum", label: "Qiskit Quantum Lab", Icon: Atom, color: "text-purple-400" },
+    { id: "comparison", label: "Classical vs Quantum", Icon: Scale, color: "text-cyan-400 font-bold" },
+    { id: "demo-hub", label: "New Feature Hub", Icon: Activity, color: "text-emerald-400 font-bold" },
     { id: "motifs", label: "Pattern & Motif Matrix", Icon: Repeat, color: "text-emerald-400" },
     { id: "ai-report", label: "AI Report & PDF Export", Icon: FileText, color: "text-amber-400" }
   ];

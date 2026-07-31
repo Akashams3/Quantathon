@@ -1,0 +1,57 @@
+{
+  "sequence_id": "Sample_002",
+  "description": "Sample_002",
+  "validation": {
+    "is_valid": true,
+    "total_length": 28,
+    "invalid_characters": [],
+    "invalid_counts": {},
+    "invalid_total_count": 0,
+    "status_message": "[OK] Valid DNA"
+  },
+  "cleaning": {
+    "cleaned_sequence": "ATCGATGGATCGATCGATCGATCGATCG",
+    "original_length": 28,
+    "cleaned_length": 28,
+    "removed_characters_count": 0
+  },
+  "features": {
+    "sequence_length": 28,
+    "gc_content_pct": 50.0,
+    "at_content_pct": 50.0,
+    "gc_at_ratio": 1.0,
+    "base_counts": {
+      "A": 7,
+      "T": 7,
+      "G": 8,
+      "C": 6
+    },
+    "nucleotide_distribution_pct": {
+      "A": 25.0,
+      "T": 25.0,
+      "G": 28.57,
+      "C": 21.43
+    },
+    "k_value": 3,
+    "unique_kmers_count": 7,
+    "kmer_frequencies": {
+      "ATC": 6,
+      "TCG": 6,
+      "GAT": 6,
+      "CGA": 5,
+      "ATG": 1,
+      "TGG": 1,
+      "GGA": 1
+    },
+    "total_codons": 9,
+    "unique_codons_count": 5,
+    "codon_frequencies": {
+      "ATC": 3,
+      "GAT": 2,
+      "TCG": 2,
+      "GGA": 1,
+      "CGA": 1
+    }
+  },
+  "status": "Ready for AI & Quantum Analysis"
+}
