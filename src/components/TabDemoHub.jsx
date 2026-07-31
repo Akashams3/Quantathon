@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
-import { Cpu, Globe2, MessageSquare, Download, Activity, Dna, Send, ChevronRight, ChevronLeft, Play, Pause, ZoomIn, ZoomOut, Search, X } from 'lucide-react';
+import { Cpu, Globe2, MessageSquare, Download, Activity, Dna, Send, ChevronRight, ChevronLeft, Play, Pause, ZoomIn, ZoomOut, Search, X, Sparkles, CheckCircle2, GitCommit, AlertTriangle, Layers, BookOpen, ArrowDown } from 'lucide-react';
 import { BackendAPI } from '../services/api.js';
 import { COMMON_QUESTIONS, QUESTION_CATEGORIES } from '../utils/commonQuestions.js';
 
@@ -28,6 +28,14 @@ const FEATURES = [
     status: 'Ready',
     statusColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
   },
+  {
+    id: 'dna-proof',
+    title: 'DNA Mutation Proof Inspector',
+    description: 'Chromosome 22 sample sequence mutation proof & amino acid output translation.',
+    icon: <Dna className="w-5 h-5 text-emerald-400" />,
+    status: 'New Feature',
+    statusColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+  },
 ];
 
 const BASE_COLORS = {
@@ -43,7 +51,6 @@ const GUIDE_STEPS = [
   { title: 'Click a Locus', desc: 'Click any base pair on the helix to inspect its variant classification and HGVS codon data.', action: 'Select locus' },
   { title: 'Switch Twin Modes', desc: 'In the Digital Twin tab, toggle between 3D Helix, Qubit Spin Angles, and AI Variant Hotspots.', action: 'Try modes' },
 ];
-
 
 // ── 3D DNA Explorer with Hydrogen Bond Visualization (A=T 2 Bonds, C≡G 3 Bonds) ──
 function Panel3DDNA() {
@@ -211,7 +218,6 @@ function Panel3DDNA() {
   );
 }
 
-
 // ── Quantum Circuit Animation (DNA-like rotating helix of qubits) ──────────
 function PanelQuantumCircuit() {
   const [rotationAngle, setRotationAngle] = useState(0);
@@ -328,6 +334,274 @@ function PanelQuantumCircuit() {
             <div className="text-slate-400 text-[10px]">θ = {r}</div>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+// ── NEW FEATURE: DNA Mutation Proof Inspector (10-Point Presentation-Ready Format) ──
+function PanelMutationProof() {
+  const [selectedCodon, setSelectedCodon] = useState(11);
+
+  const codonsList = [
+    { num: 1, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+    { num: 2, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+    { num: 3, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+    { num: 4, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+    { num: 5, base: "AAA", aa: "Lys", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+
+    { num: 6, base: "TTT", aa: "Phe", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+    { num: 7, base: "TTT", aa: "Phe", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+    { num: 8, base: "TTT", aa: "Phe", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+    { num: 9, base: "TTT", aa: "Phe", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+    { num: 10, base: "TTT", aa: "Phe", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+
+    { num: 11, base: "CCC", aa: "Pro", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" },
+    { num: 12, base: "CCC", aa: "Pro", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" },
+    { num: 13, base: "CCC", aa: "Pro", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" },
+    { num: 14, base: "CCC", aa: "Pro", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" },
+    { num: 15, base: "CCC", aa: "Pro", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" },
+
+    { num: 16, base: "GGG", aa: "Gly", color: "bg-purple-500/20 text-purple-400 border-purple-500/40" },
+    { num: 17, base: "GGG", aa: "Gly", color: "bg-purple-500/20 text-purple-400 border-purple-500/40" },
+    { num: 18, base: "GGG", aa: "Gly", color: "bg-purple-500/20 text-purple-400 border-purple-500/40" },
+    { num: 19, base: "GGG", aa: "Gly", color: "bg-purple-500/20 text-purple-400 border-purple-500/40" },
+    { num: 20, base: "GGG", aa: "Gly", color: "bg-purple-500/20 text-purple-400 border-purple-500/40" }
+  ];
+
+  return (
+    <div className="space-y-6 font-mono text-xs animate-fadeIn">
+      {/* 10. Color Coding Palette Legend Header */}
+      <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+        <div className="font-bold text-slate-200 flex items-center justify-between border-b border-slate-800 pb-2">
+          <span className="flex items-center space-x-2">
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <span>DNA Codon Color Palette & Reading Frame Dictionary</span>
+          </span>
+          <span className="text-[10px] text-cyan-400">Watson-Crick Translation Rules</span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-6 gap-2">
+          <div className="p-2 rounded bg-emerald-950/60 border border-emerald-500/40 text-center">
+            <span className="text-emerald-400 font-bold block text-sm">🟩 Lys (AAA)</span>
+            <span className="text-[10px] text-slate-400">Lysine</span>
+          </div>
+          <div className="p-2 rounded bg-amber-950/60 border border-amber-500/40 text-center">
+            <span className="text-amber-400 font-bold block text-sm">🟦 Phe (TTT)</span>
+            <span className="text-[10px] text-slate-400">Phenylalanine</span>
+          </div>
+          <div className="p-2 rounded bg-cyan-950/60 border border-cyan-500/40 text-center">
+            <span className="text-cyan-400 font-bold block text-sm">🟨 Pro (CCC)</span>
+            <span className="text-[10px] text-slate-400">Proline</span>
+          </div>
+          <div className="p-2 rounded bg-purple-950/60 border border-purple-500/40 text-center">
+            <span className="text-purple-400 font-bold block text-sm">🟪 Gly (GGG)</span>
+            <span className="text-[10px] text-slate-400">Glycine</span>
+          </div>
+          <div className="p-2 rounded bg-red-950/60 border border-red-500/40 text-center">
+            <span className="text-red-400 font-bold block text-sm">🔴 TCC (Ser)</span>
+            <span className="text-[10px] text-slate-400">Mutated Missense</span>
+          </div>
+          <div className="p-2 rounded bg-orange-950/60 border border-orange-500/40 text-center">
+            <span className="text-orange-400 font-bold block text-sm">🟠 CCG/CGG</span>
+            <span className="text-[10px] text-slate-400">Frameshifted</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 9. Mutation Summary Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Card 1: Wild Type */}
+        <div className="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-2">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span className="font-bold text-emerald-400">Wild Type (Reference)</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">Normal</span>
+          </div>
+          <div className="space-y-1 text-slate-300 text-[11px]">
+            <div>Sequence Length: <strong className="text-slate-100">60 bp</strong></div>
+            <div>Codons: <strong className="text-cyan-400">20 Triplets</strong></div>
+            <div>Mutation: <strong className="text-emerald-400">None (Wildtype)</strong></div>
+            <div>Protein Chain: <span className="text-slate-400 text-[10px] block truncate">KKKKKFFFFFPPPPPGGGGG</span></div>
+          </div>
+        </div>
+
+        {/* Card 2: Missense */}
+        <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-2">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span className="font-bold text-amber-400">Point Mutation (Missense)</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30">C → T</span>
+          </div>
+          <div className="space-y-1 text-slate-300 text-[11px]">
+            <div>Mutation Type: <strong className="text-amber-400">Point Substitution</strong></div>
+            <div>Changed Codon: <strong className="text-red-400">#11 (CCC → TCC)</strong></div>
+            <div>Protein Change: <strong className="text-amber-300">Pro → Ser</strong></div>
+            <div>Reading Frame: <strong className="text-emerald-400">Preserved ✓</strong></div>
+          </div>
+        </div>
+
+        {/* Card 3: Frameshift */}
+        <div className="p-4 rounded-xl bg-slate-950 border border-rose-500/30 space-y-2">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span className="font-bold text-rose-400">Frameshift (Deletion)</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30">-1 T</span>
+          </div>
+          <div className="space-y-1 text-slate-300 text-[11px]">
+            <div>Mutation Type: <strong className="text-rose-400">1bp Deletion</strong></div>
+            <div>Reading Frame: <strong className="text-rose-400 font-bold">Shifted ⚡</strong></div>
+            <div>Downstream Codons: <strong className="text-orange-400">Regrouped</strong></div>
+            <div>Protein Length: <strong className="text-slate-100">19 Amino Acids (-1)</strong></div>
+          </div>
+        </div>
+      </div>
+
+      {/* 1. Show Codons in Groups of Three & 2. Numbered List */}
+      <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span className="text-cyan-400 font-bold text-sm">1. Normal Reference Sequence (Grouped Triplets & Codon Numbers)</span>
+          <span className="text-[10px] text-slate-400">60 bp / 3 = 20 Codons</span>
+        </div>
+
+        {/* Codon Groups of 3 Display */}
+        <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 space-y-2">
+          <div className="text-[10px] text-slate-400 uppercase tracking-widest">Triplets Grouped in Threes (Reading Frame):</div>
+          <div className="text-sm font-bold text-slate-200 tracking-widest flex flex-wrap gap-2">
+            <span className="text-emerald-400">AAA | AAA | AAA | AAA | AAA |</span>
+            <span className="text-amber-400">TTT | TTT | TTT | TTT | TTT |</span>
+            <span className="text-cyan-400">CCC | CCC | CCC | CCC | CCC |</span>
+            <span className="text-purple-400">GGG | GGG | GGG | GGG | GGG |</span>
+          </div>
+        </div>
+
+        {/* Numbered Codon List */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-2">
+          {codonsList.map((c) => (
+            <div key={c.num} className={`p-2 rounded-lg border text-center ${c.color}`}>
+              <div className="text-[10px] font-bold opacity-75">Codon #{c.num}</div>
+              <div className="font-extrabold text-sm">{c.base} → {c.aa}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Highlight Mutation & 4. Before vs After Table & 5. Missense Rationale */}
+      <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span className="text-amber-400 font-bold text-sm">2. Point Mutation (Missense Substitution C → T Visual Proof)</span>
+          <span className="text-[10px] text-amber-300">Codon 11 Substitution</span>
+        </div>
+
+        {/* Visual Highlight */}
+        <div className="p-4 bg-slate-900 rounded-xl border border-amber-500/30 flex flex-col md:flex-row items-center justify-around gap-4 text-center">
+          <div className="space-y-1">
+            <span className="text-[10px] text-slate-400 uppercase">Wildtype Codon #11</span>
+            <div className="text-xl font-extrabold text-cyan-400">11 CCC → Pro</div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-amber-400">
+            <ArrowDown className="w-5 h-5 animate-bounce" />
+            <span className="text-[10px] font-bold">C → T Substitution</span>
+          </div>
+
+          <div className="space-y-1">
+            <span className="text-[10px] text-slate-400 uppercase">Mutated Codon #11</span>
+            <div className="text-xl font-extrabold text-red-400">11 TCC → Ser</div>
+          </div>
+        </div>
+
+        {/* Before vs After Comparison Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-slate-800 text-[11px] text-slate-400 uppercase bg-slate-900/60">
+                <th className="py-2.5 px-3">Codon #</th>
+                <th className="py-2.5 px-3">Normal Codon</th>
+                <th className="py-2.5 px-3">Mutated Codon</th>
+                <th className="py-2.5 px-3">Amino Acid Translation</th>
+                <th className="py-2.5 px-3">Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-800/60 hover:bg-slate-800/30">
+                <td className="py-2 px-3 text-slate-400">10</td>
+                <td className="py-2 px-3 text-amber-400 font-bold">TTT</td>
+                <td className="py-2 px-3 text-amber-400 font-bold">TTT</td>
+                <td className="py-2 px-3 text-slate-200">Phe</td>
+                <td className="py-2 px-3 text-emerald-400">Preserved</td>
+              </tr>
+              <tr className="border-b border-slate-800/60 bg-red-950/20 font-bold">
+                <td className="py-2 px-3 text-red-400">11</td>
+                <td className="py-2 px-3 text-cyan-400">CCC</td>
+                <td className="py-2 px-3 text-red-400 underline">TCC</td>
+                <td className="py-2 px-3 text-amber-300">Pro → Ser</td>
+                <td className="py-2 px-3 text-red-400">Missense Variant</td>
+              </tr>
+              <tr className="border-b border-slate-800/60 hover:bg-slate-800/30">
+                <td className="py-2 px-3 text-slate-400">12</td>
+                <td className="py-2 px-3 text-cyan-400 font-bold">CCC</td>
+                <td className="py-2 px-3 text-cyan-400 font-bold">CCC</td>
+                <td className="py-2 px-3 text-slate-200">Pro</td>
+                <td className="py-2 px-3 text-emerald-400">Preserved</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* 5. Explain Why It Is a Missense Mutation */}
+        <div className="p-4 rounded-xl bg-slate-900 border border-amber-500/30 space-y-1 text-slate-300 leading-relaxed text-xs">
+          <div className="text-amber-400 font-bold flex items-center space-x-1.5 mb-1">
+            <BookOpen className="w-4 h-4" />
+            <span>Scientific Missense Rationale:</span>
+          </div>
+          <p>
+            A single nucleotide substitution changes the first base of codon 11 from <strong className="text-slate-100">C to T</strong>. The codon changes from <strong className="text-cyan-400">CCC (Proline)</strong> to <strong className="text-red-400">TCC (Serine)</strong>. Because only one amino acid changes while the reading frame remains unchanged, this is classified as a missense mutation.
+          </p>
+        </div>
+      </div>
+
+      {/* 6. Improve Frameshift Section & 7. Reading Frame Diagram & 8. Domino Effect */}
+      <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span className="text-rose-400 font-bold text-sm">3. Frameshift Mutation (Deletion Step-by-Step Regrouping Diagram)</span>
+          <span className="text-[10px] text-rose-300">1bp Deletion (-1 T)</span>
+        </div>
+
+        {/* Step-by-Step Shift Diagram */}
+        <div className="p-4 bg-slate-900 rounded-xl border border-rose-500/30 space-y-3">
+          <div className="space-y-1">
+            <span className="text-[10px] text-slate-400 uppercase">Original Reference Triplets:</span>
+            <div className="text-xs font-bold text-slate-300">
+              AAA | AAA | AAA | AAA | AAA | TTT | TTT | TTT | TTT | TTT | CCC | CCC | CCC | CCC | CCC | GGG | GGG | GGG | GGG | GGG
+            </div>
+          </div>
+
+          <div className="p-2 rounded bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs font-bold flex items-center space-x-2">
+            <AlertTriangle className="w-4 h-4 text-rose-400" />
+            <span>Deleting one nucleotide (-1 T from Thymine block)...</span>
+          </div>
+
+          <div className="space-y-1">
+            <span className="text-[10px] text-slate-400 uppercase">Regrouped Triplets After Shift (Dominos Cascading):</span>
+            <div className="text-xs font-bold text-orange-400 tracking-wider">
+              AAA | AAA | AAA | AAA | AAA | TTT | TTT | TTT | TTT | <span className="text-red-400 underline font-black">TCC</span> | CCC | CCC | CCC | <span className="text-orange-300 underline font-black">CCG</span> | GGG | GGG | GGG | GGG | GGG
+            </div>
+          </div>
+
+          <div className="pt-2 text-[11px] text-rose-400 font-bold flex items-center space-x-2">
+            <ArrowDown className="w-4 h-4 text-rose-400" />
+            <span>↓ Every downstream codon changes | ↓ Multiple amino acids are altered</span>
+          </div>
+        </div>
+
+        {/* 8. Explain the Domino Effect */}
+        <div className="p-4 rounded-xl bg-slate-900 border border-rose-500/30 space-y-1 text-slate-300 leading-relaxed text-xs">
+          <div className="text-rose-400 font-bold flex items-center space-x-1.5 mb-1">
+            <BookOpen className="w-4 h-4" />
+            <span>Scientific Domino Effect (Frameshift Rationale):</span>
+          </div>
+          <p>
+            Deleting one nucleotide shifts the reading frame by one base. Every downstream codon is regrouped into new triplets, causing multiple amino acid changes. This cascading effect is known as a frameshift mutation.
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -483,13 +757,14 @@ export default function TabDemoHub({ analysis }) {
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">New Feature Hub</div>
             <h2 className="mt-1 text-2xl font-extrabold text-white">AI + Quantum Genomic Feature Suite</h2>
             <p className="mt-2 text-sm text-slate-400 max-w-2xl">
-              Explore interactive genomic tools — 3D double helix hydrogen bonding viewer (A=T & C≡G), Qiskit quantum circuit animation, and AI chat assistant.
+              Explore interactive genomic tools — 3D double helix hydrogen bonding viewer (A=T & C≡G), Qiskit quantum circuit animation, AI chat assistant, and DNA Mutation Proof Inspector.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-3 shrink-0">
+          <div className="grid grid-cols-4 gap-3 shrink-0">
             {[['cyan', '3D Helix', <Dna key="d" className="w-4 h-4" />],
               ['purple', 'Quantum', <Activity key="a" className="w-4 h-4" />],
               ['amber', 'AI Chat', <MessageSquare key="m" className="w-4 h-4" />],
+              ['emerald', 'Mutation Proof', <GitCommit key="g" className="w-4 h-4" />],
             ].map(([color, label, icon]) => (
               <div key={label} className={`rounded-xl border border-${color}-500/20 bg-${color}-500/10 p-3 text-center`}>
                 <div className={`flex justify-center text-${color}-400 mb-1`}>{icon}</div>
@@ -534,6 +809,7 @@ export default function TabDemoHub({ analysis }) {
           {activeFeature === '3d-dna' && <Panel3DDNA />}
           {activeFeature === 'quantum-animation' && <PanelQuantumCircuit />}
           {activeFeature === 'ai-chat' && <PanelAIChat />}
+          {activeFeature === 'dna-proof' && <PanelMutationProof />}
         </div>
       </div>
 
