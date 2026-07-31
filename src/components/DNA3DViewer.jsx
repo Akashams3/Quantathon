@@ -1,11 +1,24 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-export default function DNA3DViewer() {
+export default function DNA3DViewer({ rotationSpeed = 1.5, zoom = 100 }) {
   const containerRef = useRef(null);
   const animationFrameRef = useRef(null);
   const isDraggingRef = useRef(false);
   const prevMouseRef = useRef({ x: 0, y: 0 });
+  const rotationSpeedRef = useRef(rotationSpeed);
+  const cameraRef = useRef(null);
+
+  useEffect(() => {
+    rotationSpeedRef.current = rotationSpeed;
+  }, [rotationSpeed]);
+
+  useEffect(() => {
+    if (cameraRef.current) {
+      const zoomValue = Math.max(60, Math.min(150, zoom));
+      cameraRef.current.position.set(0, 0, 45 * (100 / zoomValue));
+    }
+  }, [zoom]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -19,7 +32,9 @@ export default function DNA3DViewer() {
 
     // 2. Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 45);
+    const initialZoom = Math.max(60, Math.min(150, zoom));
+    camera.position.set(0, 0, 45 * (100 / initialZoom));
+    cameraRef.current = camera;
 
     // 3. Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -166,8 +181,8 @@ export default function DNA3DViewer() {
       animationFrameRef.current = requestAnimationFrame(animate);
 
       if (!isDraggingRef.current) {
-        dnaGroup.rotation.y += 0.008;
-        dnaGroup.rotation.x += 0.002;
+        dnaGroup.rotation.y += 0.008 * rotationSpeedRef.current;
+        dnaGroup.rotation.x += 0.002 * rotationSpeedRef.current;
       }
 
       renderer.render(scene, camera);

@@ -6,6 +6,7 @@ import StatCardGrid from './components/StatCardGrid.jsx';
 import TabOverview from './components/TabOverview.jsx';
 import TabNucleotideViewer from './components/TabNucleotideViewer.jsx';
 import TabMutationStudio from './components/TabMutationStudio.jsx';
+import TabDigitalTwin from './components/TabDigitalTwin.jsx';
 import TabQuantumLab from './components/TabQuantumLab.jsx';
 import TabMotifMatrix from './components/TabMotifMatrix.jsx';
 import TabAIReport from './components/TabAIReport.jsx';
@@ -227,6 +228,12 @@ export default function App() {
             analysis={currentAnalysis}
             history={history}
             onSelectHistory={handleSelectHistory}
+          />
+        )}
+
+        {activeTab === "digitalTwin" && (
+          <TabDigitalTwin
+            analysis={currentAnalysis}
           />
         )}
 

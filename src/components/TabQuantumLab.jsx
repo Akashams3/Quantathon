@@ -35,64 +35,59 @@ export default function TabQuantumLab({ quantumResults }) {
 
             <div className="p-6 bg-slate-950/80 rounded-xl border border-slate-800 space-y-4 font-mono text-xs overflow-x-auto">
               <div className="text-cyan-400 font-semibold mb-2">
-                Qiskit Quantum Circuit Architecture (4-Qubit Quantum Fourier Transform Register):
+                Qiskit Quantum Circuit Architecture (4-Qubit Hadamard + Ring CNOT Entanglement):
               </div>
-              
               <div className="flex items-center space-x-2 min-w-[500px]">
-                <span className="text-purple-400 font-bold w-12">q₀: |0⟩</span>
+                <span className="text-purple-400 font-bold w-12">q₀:</span>
                 <div className="flex-1 h-0.5 bg-cyan-500/40 flex items-center justify-around px-2">
                   <span className="px-2 py-1 bg-cyan-950 border border-cyan-400 text-cyan-300 rounded shadow">H</span>
-                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">● (Control)</span>
-                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">
-                    RZ({gates[6] ? gates[6].theta : "0.79 rad"})
-                  </span>
-                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M 🎛️</span>
+                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">Ry({circuitInfo.qubitSpinAngles?.[0]?.theta || "0.00 rad"})</span>
+                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">CX→q₁</span>
+                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M</span>
                 </div>
               </div>
-
+ 
               <div className="flex items-center space-x-2 min-w-[500px]">
-                <span className="text-purple-400 font-bold w-12">q₁: |0⟩</span>
+                <span className="text-purple-400 font-bold w-12">q₁:</span>
                 <div className="flex-1 h-0.5 bg-cyan-500/40 flex items-center justify-around px-2">
                   <span className="px-2 py-1 bg-cyan-950 border border-cyan-400 text-cyan-300 rounded shadow">H</span>
-                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">⊕ (Target)</span>
-                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">
-                    RZ({gates[7] ? gates[7].theta : "0.79 rad"})
-                  </span>
-                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M 🎛️</span>
+                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">Ry({circuitInfo.qubitSpinAngles?.[1]?.theta || "1.57 rad"})</span>
+                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">CX→q₂</span>
+                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M</span>
                 </div>
               </div>
-
+ 
               <div className="flex items-center space-x-2 min-w-[500px]">
-                <span className="text-purple-400 font-bold w-12">q₂: |0⟩</span>
+                <span className="text-purple-400 font-bold w-12">q₂:</span>
                 <div className="flex-1 h-0.5 bg-cyan-500/40 flex items-center justify-around px-2">
                   <span className="px-2 py-1 bg-cyan-950 border border-cyan-400 text-cyan-300 rounded shadow">H</span>
-                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">● (Control)</span>
-                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">I</span>
-                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M 🎛️</span>
+                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">Ry({circuitInfo.qubitSpinAngles?.[2]?.theta || "3.14 rad"})</span>
+                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">CX→q₃</span>
+                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M</span>
                 </div>
               </div>
-
+ 
               <div className="flex items-center space-x-2 min-w-[500px]">
-                <span className="text-purple-400 font-bold w-12">q₃: |0⟩</span>
+                <span className="text-purple-400 font-bold w-12">q₃:</span>
                 <div className="flex-1 h-0.5 bg-cyan-500/40 flex items-center justify-around px-2">
                   <span className="px-2 py-1 bg-cyan-950 border border-cyan-400 text-cyan-300 rounded shadow">H</span>
-                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">⊕ (Target)</span>
-                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">I</span>
-                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M 🎛️</span>
+                  <span className="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded shadow">Ry({circuitInfo.qubitSpinAngles?.[3]?.theta || "4.71 rad"})</span>
+                  <span className="px-2 py-1 bg-purple-950 border border-purple-400 text-purple-300 rounded shadow">CX→q₀</span>
+                  <span className="px-2 py-1 bg-emerald-950 border border-emerald-400 text-emerald-300 rounded shadow">M</span>
                 </div>
               </div>
             </div>
 
             <div className="p-4 bg-slate-900/60 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
-              <div className="font-bold text-slate-200">Nucleotide Qubit Mapping Scheme:</div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono">
-                <span className="p-2 rounded bg-slate-950 border border-slate-800 text-emerald-400">A → |00⟩</span>
-                <span className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-400">C → |01⟩</span>
-                <span className="p-2 rounded bg-slate-950 border border-slate-800 text-cyan-400">G → |10⟩</span>
-                <span className="p-2 rounded bg-slate-950 border border-slate-800 text-purple-400">T → |11⟩</span>
-              </div>
-            </div>
-          </div>
+                <div className="font-bold text-slate-200">Qubit Spin Angle Encoding Scheme:</div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono">
+                  {circuitInfo.qubitSpinAngles?.map((item) => (
+                    <span key={item.qubit} className="p-2 rounded bg-slate-950 border border-slate-800 text-slate-200">
+                      {item.base} → q{item.qubit} Ry({item.theta})
+                    </span>
+                  ))}
+                </div>
+              </div>          </div>
         </div>
 
         <div className="lg:col-span-5 space-y-6">

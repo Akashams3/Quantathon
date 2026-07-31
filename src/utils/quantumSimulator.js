@@ -40,22 +40,34 @@ export const QuantumSimulator = {
       "|11⟩ (T)": Number((0.25 * (1 - 0.1 * Math.cos(quantumSimilarityScore))).toFixed(3))
     };
 
+    const spinAngles = [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2];
+
     const circuitInfo = {
       numQubits: 4,
-      depth: 6,
+      depth: 8,
       gates: [
         { qubit: 0, type: "H", label: "Hadamard Superposition" },
         { qubit: 1, type: "H", label: "Hadamard Superposition" },
         { qubit: 2, type: "H", label: "Hadamard Superposition" },
         { qubit: 3, type: "H", label: "Hadamard Superposition" },
-        { qubit: 0, target: 1, type: "CX", label: "CNOT Entanglement Q0-Q1" },
-        { qubit: 2, target: 3, type: "CX", label: "CNOT Entanglement Q2-Q3" },
-        { qubit: 0, type: "RZ", theta: `${(phaseOffset).toFixed(2)} rad`, label: "Phase Shift RZ" },
-        { qubit: 1, type: "RZ", theta: `${(phaseOffset).toFixed(2)} rad`, label: "Phase Shift RZ" },
+        { qubit: 0, type: "Ry", theta: `${spinAngles[0].toFixed(2)} rad`, label: "Qubit Spin Angle Encoding" },
+        { qubit: 1, type: "Ry", theta: `${spinAngles[1].toFixed(2)} rad`, label: "Qubit Spin Angle Encoding" },
+        { qubit: 2, type: "Ry", theta: `${spinAngles[2].toFixed(2)} rad`, label: "Qubit Spin Angle Encoding" },
+        { qubit: 3, type: "Ry", theta: `${spinAngles[3].toFixed(2)} rad`, label: "Qubit Spin Angle Encoding" },
+        { qubit: 0, target: 1, type: "CX", label: "Ring CNOT Q0→Q1" },
+        { qubit: 1, target: 2, type: "CX", label: "Ring CNOT Q1→Q2" },
+        { qubit: 2, target: 3, type: "CX", label: "Ring CNOT Q2→Q3" },
+        { qubit: 3, target: 0, type: "CX", label: "Ring CNOT Q3→Q0" },
         { qubit: 0, type: "Measure", label: "Qubit 0 Measurement" },
         { qubit: 1, type: "Measure", label: "Qubit 1 Measurement" },
         { qubit: 2, type: "Measure", label: "Qubit 2 Measurement" },
         { qubit: 3, type: "Measure", label: "Qubit 3 Measurement" }
+      ],
+      qubitSpinAngles: [
+        { qubit: 0, base: "A", theta: `${spinAngles[0].toFixed(2)} rad` },
+        { qubit: 1, base: "T", theta: `${spinAngles[1].toFixed(2)} rad` },
+        { qubit: 2, base: "G", theta: `${spinAngles[2].toFixed(2)} rad` },
+        { qubit: 3, base: "C", theta: `${spinAngles[3].toFixed(2)} rad` }
       ],
       backend: "ibmq_qasm_simulator (IBM Quantum Network)",
       shots: 1024

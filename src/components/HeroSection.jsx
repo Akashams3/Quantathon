@@ -18,21 +18,21 @@ export default function HeroSection() {
             </span>
           </h2>
           <p className="text-sm text-slate-400 leading-relaxed max-w-2xl">
-            Accelerate genomic research by combining classical bioinformatics sequence alignment with IBM Quantum state vector similarity scoring and automated AI biological summary generation.
+            Accelerate genomic research with a 3D digital twin double-helix explorer, quantum spin-angle circuit animation, and AI-assisted variant interpretation for immersive sequence insight.
           </p>
-
+ 
           <div className="flex flex-wrap gap-3 pt-2 text-xs font-mono">
             <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 flex items-center space-x-1.5">
               <CheckCircle className="w-3.5 h-3.5" />
-              <span>FASTA / TXT Validation</span>
+              <span>Interactive 3D DNA Explorer</span>
             </span>
             <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-cyan-400 flex items-center space-x-1.5">
               <Cpu className="w-3.5 h-3.5" />
-              <span>4-Qubit State Vector |ψ⟩</span>
+              <span>Animated Qubit Spin-Angle Circuit</span>
             </span>
             <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-purple-400 flex items-center space-x-1.5">
               <Bot className="w-3.5 h-3.5" />
-              <span>AI Risk Assessment</span>
+              <span>AI Variant Interpretation</span>
             </span>
           </div>
         </div>
